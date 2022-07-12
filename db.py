@@ -10,7 +10,7 @@ pg_config = {
     'password': '#Trinity13',
     'host': '127.0.0.1',
     'port': '5432',
-    'db': 'job_scraper'
+    'db': 'swe_jobs'
 }
 
 # Postgres database connection url
@@ -27,7 +27,7 @@ Base = declarative_base()
 
 # Create job table
 class Job(Base):
-    __tablename__ = 'job'
+    __tablename__ = 'jobs'
 
     id = Column(BigInteger, primary_key=True)
     title = Column(Text, nullable=False)
@@ -36,6 +36,8 @@ class Job(Base):
     description = Column(Text, nullable=False)
     link = Column(Text, nullable=False)
     date = Column(Date, nullable=False)
+    createdAt = Column(Date, nullable=False)
+    updatedAt = Column(Date, nullable=False)
 
     def __repr__(self):
         return f"User(id={self.id!r}, title={self.title!r}, company={self.company!r}, location={self.location!r}, description={self.description!r}, link={self.link!r}, date={self.date!r})"
