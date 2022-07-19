@@ -6,7 +6,7 @@ from sqlalchemy_utils import database_exists, create_database
 
 # Postgres database configuration
 pg_config = {
-    'user': 'johnboyle',
+    'user': 'postgres',
     'password': '#Trinity13',
     'host': '127.0.0.1',
     'port': '5432',
@@ -26,6 +26,8 @@ session = sessionmaker(bind=engine)()
 Base = declarative_base()
 
 # Create job table
+
+
 class Job(Base):
     __tablename__ = 'jobs'
 
@@ -41,5 +43,6 @@ class Job(Base):
 
     def __repr__(self):
         return f"User(id={self.id!r}, title={self.title!r}, company={self.company!r}, location={self.location!r}, description={self.description!r}, link={self.link!r}, date={self.date!r})"
+
 
 Base.metadata.create_all(engine)

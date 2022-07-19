@@ -20,5 +20,5 @@ for job in jobs:
 
     count_matrix = cv.fit_transform([resume, description])
     match_percentage = round(cosine_similarity(count_matrix)[0][1] * 100, 2)
-    
+
     print(match_percentage)
